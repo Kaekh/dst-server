@@ -10,6 +10,6 @@ services:
         - "27019:27019/udp"
      volumes:
         - ./data:/steam/.klei
-        - ./mods:/steam/dst/mods
+        - ./files:/steam/files
      environment:
         SERVERNAME: YourClusterName
