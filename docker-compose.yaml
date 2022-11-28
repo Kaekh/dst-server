@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  dst-server:
+     image: kaekh/dst-server
+     restart: "on-failure:5"
+     ports:
+        - "10000:10000/udp"
+        - "10001:10001/udp"
+        - "27018:27018/udp"
+        - "27019:27019/udp"
+     volumes:
+        - ./dst/data:/steam/.klei
+        - ./dst/mods:/steam/dst/mods
+     environment:
+        SERVERNAME: YourClusterName
