@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  dst-server:
+    image: kaekh/dst:latest
+    container_name: dst
+    restart: "unless-stopped"
+    environment:
+      - SERVER_NAME=MyDedicatedDSTServer
+      - SERVER_PASSWORD=
+      - SERVER_GAME_MODE=
+      - SERVER_INTENTION=
+      - SERVER_PUBLIC_DESC=
+      - SERVER_TOKEN=
+      - PUID=1000
+      - PGID=1000
+    #tty: true
+    ports:
+        - "10000:10000/udp"
+        - "10001:10001/udp"
+        - "27018:27018/udp"
+        - "27019:27019/udp"
+    volumes:
+        - ./server:/opt/dst/.klei/DoNotStarveTogether
