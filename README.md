@@ -11,7 +11,7 @@ You'll need to bind a local directory to the Docker container's `/opt/dst/.klei/
 -   `adminlist.txt` - File with the list of server admins. You can add an admin by writing their KleiID (one per line) and restarting the server (Example: KU_ad39dik).
 -   `blocklist.txt` - File with the list of blocked players. You can block a player by writing their KleiID (one per line) and restarting the server (Example: KU_ad39dik).
 -   `cluster.ini` - File with the cluster configuration. Don't edit this file directly; change Docker environment variables instead, as they will overwrite it.
--   `cluster_token.txt` - File with your [server token.](https://github.com/Kaekh/dst-server/tree/main?tab=readme-ov-file#klei-account)
+-   `cluster_token.txt` - File with your server token. It can be generated from your [Klei account](https://github.com/Kaekh/dst-server/tree/main?tab=readme-ov-file#klei-account)
 -   `whitelist.txt` - File with the priority players. They will be able to join when the server is full. You can add a player to the whitelist by writing their KleiID (one per line) and restarting the server (Example: KU_ad39dik).
 
 
