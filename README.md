@@ -4,15 +4,15 @@ Dockerized version of [Don't Starve Together](https://store.steampowered.com/app
 
 ## Setup
 
-You'll need to bind a local directory to the Docker container's `/opt/dst/.klei/DoNotStarveTogether` directory. This directory will hold the following directories:
+You'll need to bind a local directory to the Docker container's `/opt/dst/.klei/DoNotStarveTogether` directory. This directory will hold the following files:
 
--   `/Logs` - folder with history logs
--   `/Saves` - folder with server files
--   `/Server` - folder with server options
--   `/backups` - folder with backups
--   `/db` - folder with database of game
--   `/options.ini` - file with configuration to start up server
--   `/server-console.txt` - file with logs of server
+-   `Caves` - Folder with config and log files for the caves server.
+-   `Master` - Folder with config and log files for the master server.
+-   `adminlist.txt` - File with the list of server admins. You can add an admin by writing their KleiID (one per line) and restarting the server (Example: KU_ad39dik).
+-   `blocklist.txt` - File with the list of blocked players. You can block a player by writing their KleiID (one per line) and restarting the server (Example: KU_ad39dik).
+-   `cluster.ini` - File with the cluster configuration. Don't edit this file directly; change Docker environment variables instead, as they will overwrite it.
+-   `cluster_token.txt` - File with your [server token.](https://github.com/Kaekh/dst-server/tree/main?tab=readme-ov-file#klei-account)
+-   `whitelist.txt` - File with the priority players. They will be able to join when the server is full. You can add a player to the whitelist by writing their KleiID (one per line) and restarting the server (Example: KU_ad39dik).
 
 
 ```bash
@@ -47,7 +47,7 @@ kaekh/dst:latest
 * `--restart unless-stopped` -> Automatically restarts the container unless the container was manually stopped
 * `--volume` -> Binds the DST server folder to the folder you specified
 Allows you to easily access your server files
-* For the environment (`--env`) variables please see [here](https://github.com/Kaekh/dst-server/edit/main/README.md#environment-variables)
+* For the environment (`--env`) variables please see [here](https://github.com/Kaekh/dst-server/tree/main?tab=readme-ov-file#environment-variables)
 * `--publish` -> Specifies the ports that the container exposes<br> 
 </details>
 
@@ -96,9 +96,9 @@ services:
 | `SERVER_INTENTION`        |  `cooperative`   | server intention gameplay                                       |
 | `SERVER_ACTIVE_CAVES`     |     `true`       | run caves server                                                |
 | `SERVER_PUBLIC_DESC`      |        ``        | server public description                                       |
-| `SERVER_TOKEN`            |        ``        | server token MUST be filled for the server to start, check [Klei account](https://github.com/Kaekh/dst-server/edit/main/README.md#klei-account)    |
-| `SERVERMODS`              |        ``        | list of mods ids separated by ; check [Modding](https://github.com/Kaekh/dst-server/edit/main/README.md#modding)        |
-| `SERVERMODCOLLECTION`     |        ``        | list of mods collection ids separated by ; check [Modding](https://github.com/Kaekh/dst-server/edit/main/README.md#modding)     |
+| `SERVER_TOKEN`            |        ``        | server token MUST be filled for the server to start, check [Klei account](https://github.com/Kaekh/dst-server/tree/main?tab=readme-ov-file#klei-account)    |
+| `SERVERMODS`              |        ``        | list of mods ids separated by ; check [Modding](https://github.com/Kaekh/dst-server/tree/main?tab=readme-ov-file#modding)                |
+| `SERVERMODCOLLECTION`     |        ``        | list of mods collection ids separated by ; check [Modding](https://github.com/Kaekh/dst-server/tree/main?tab=readme-ov-file#modding)     |
 | `PGID`                    |      `1000`      | set the group ID of the user the server will run as             |
 | `PUID`                    |      `1000`      | set the user ID of the user the server will run as              |
 | `TZ`                      |        ``        | server time zone [TZ list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)              |
