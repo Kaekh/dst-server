@@ -60,6 +60,7 @@ function checkGameUpdate() {
 
         if [[ "$currentVersion" -ne "$newVersion" || "$currentDate" -lt "$newDate" ]]; then
             UPDATEGAMENEEDED=true
+            log_info "Current build: $currentVersion, Last build $newVersion"
         fi
     fi
 }
