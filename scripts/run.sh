@@ -143,7 +143,7 @@ function startGame() {
     fi
 
     if [[ "$SERVER_ACTIVE_CAVES" == true && ! -f "$LOGFILECAVES" ]]; then 
-        echo -e "$MSGINFO Creating screen config file for Master... "
+        echo -e "$MSGINFO Creating screen config file for Caves... "
         echo "logfile $LOGFILECAVES" > "$DIR/.screenrcCaves.dst"
         echo "log on"  >> "$DIR/.screenrc.dst"
         echo "logtstamp on" >> "$DIR/.screenrc.dst"
